@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div class="loader"></div>
+        <nav>
+            <ul>
+                <li>ACCUEIL</li>
+                <li>SERVICES</li>
+                <li>CONTACT</li>
+            </ul>
+        </nav>
+        <div class="mousemove"></div>
+        <div class="keypress box">
+            <h2>VOUS APPUYEZ SUR LA TOUCHE: <span id="key"></span></h2>
+        </div>
+        <div class="click-event box">
+            <h4>Quelle est la capitale de la suisse ?</h4>
+            <button id="btn-1">Berne</button>
+            <button id="btn-2">Zurich</button>
+            <p>La bonne réponse est Berne</p>
+        </div>
+       
+        <form class="box">
+            <input type="text" name="nom" placeholder="Entrez votre nom">
+            <select name="" id="">
+                <option>Sélectionner votre langage</option>
+                <option value="JAVASCRIPT">JAVASCRIPT</option>
+                <option value="PHP">PHP</option>
+                <option value="PYTHON">PYTHON</option>
+            </select>
+            <input type="checkbox" id="cgv">
+            <label for="cgv">Accepter les CGV</label>
+            <div></div>
+            <input type="submit" value="VALIDER">
+        </form>
+       
+        <script src="./main.js"></script>
+    </body>
+
+</html>
