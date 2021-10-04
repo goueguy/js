@@ -117,7 +117,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (cgv.checked) {
     //Affiche le contenu des variables
-    document.querySelector("form > div").innerHTML=`
+    document.querySelector("form > div").innerHTML = `
     <h3>PSEUDO: ${pseudo}</h3>
     <h4>LANGAGE PREFEREE: ${langage}</h4>
     `;
@@ -128,23 +128,118 @@ form.addEventListener("submit", (e) => {
 
 //LOAD EVENT
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
   console.log("DOCUMENT CHARGE ......");
 });
 
+const boxes = document.querySelectorAll(".box");
 
-const boxes = document.querySelectorAll('.box');
-
-boxes.forEach((box)=>{
-  box.addEventListener('click',(e)=>{
-      e.target.style.transform="scale(0.7)";
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    box.style.transform = "scale(0.7)";
   });
-})
+});
 
 // addeventListener VS onClick
+// window.addEventListener("load", () => {
+//   document.querySelector(".loader").classList.add("loader");
+// });
 
-document.body.onclick = ()=> console.log("CLICK !");
+//Bubbling => par défaut l'eventListener est paramétré en mode Bubbling
+document.body.addEventListener("click", () => {
+  console.log("CLICK 1");
+});
+//USE CAPTURE
+document.body.addEventListener("click", () => {
+  console.log("CLICK 2");
+},true);
 
-window.addEventListener('load',()=>{
-    document.querySelector('.loader').classList.add('loader');
+//STOP PROPAGATION
+
+questionContainer.addEventListener('click',(e)=>{
+  alert("TEST");
+  e.stopPropagation();
+});
+
+//removeEventListener
+
+//BOM
+// console.log(window.innerHeight);
+// console.log(window.scrollY);
+
+// window.open('http://www.google.com',"cours js","width=600,width=800");
+// window.close();
+
+
+//WINDOW EVENT
+// window.alert('OK');
+
+btn2.addEventListener('click',()=>{
+  confirm('VOULEZ VOUS VRAIMENT VOUS TROMPER ?')
+});
+
+btn1.addEventListener('click',()=>{
+  let answer = prompt("ENTRER VOTRE NOM !");
+  questionContainer.innerHTML += "<h3>BRAVO "+answer+"</h3>";
+});
+
+setTimeout(()=>{
+ questionContainer.style.borderRadius="320px";
+},3000);
+
+// let interval = setInterval(() => {
+//   document.body.innerHTML += `
+//       <div class='box'>
+//         <h2>BOX</h2>
+//       </div>
+//     `;
+// }, 1000);
+
+// document.body.addEventListener('click',(e)=>{
+//   e.target.remove();//retirer un élément du DOM
+//   clearInterval(interval);
+// });
+
+//Location
+// console.log(location.href);
+// console.log(location.host);
+// console.log(location.search);
+// location.replace("https://lequipe.fr");
+
+// window.onload = ()=>{
+//   location.href = "http://twitter.fr"
+// }
+
+//Navigator
+// console.log(navigator.userAgent);
+//geolocalisation
+// var options = {
+//   enableHighAccuracy: true,
+//   timeout: 5000,
+//   maximumAge: 0,
+// };
+
+// function success(pos) {
+//   var crd = pos.coords;
+
+//   console.log("Your current position is:");
+//   console.log(`Latitude : ${crd.latitude}`);
+//   console.log(`Longitude: ${crd.longitude}`);
+//   console.log(`More or less ${crd.accuracy} meters.`);
+// }
+
+// function error(err) {
+//   console.warn(`ERROR(${err.code}): ${err.message}`);
+// }
+
+// navigator.geolocation.getCurrentPosition(success, error, options);
+//revenir en arriere
+// window.history.back();
+// //revenir plusieurs pages en arrière
+
+// history.go(-5);
+
+window.addEventListener('mousemove',(e)=>{
+  nav.style.setProperty("--x", e.layerX + "px");
+  nav.style.setProperty("--y",e.layerY + "px");
 });
