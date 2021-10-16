@@ -1,31 +1,35 @@
 const target = document.getElementById("target");
-let array = ["Développeur", "Photographe", "Créatif"];
+let array = ["FINANCES", "TECHNOLOGIES", "BANQUE","IMMOBILIER"];
 let wordIndex = 0;
 let letterIndex = 0;
 const createLetter = ()=>{
     const letter = document.createElement('span');
     target.appendChild(letter);
-    target.textContent = array[wordIndex][letterIndex];
+    letter.textContent = array[wordIndex][letterIndex];
+    setTimeout(()=>{
+        letter.remove();
+    },2800);
 }
-
-// createLetter();
-// setTimeout(()=>{
-//     letterIndex++;
-//      createLetter();
-// }, 200);
 
 const loop = ()=>{
     setTimeout(()=>{
-        if(letterIndex < array[wordIndex].length){
+        if(wordIndex>= array.length){
+            wordIndex=0;
+            letterIndex=0;
+            loop();
+        }else if(letterIndex < array[wordIndex].length){
             createLetter();
             letterIndex++;
             loop();
-        }else{
-            wordIndex++;
-            letterIndex = 0;
-            loop();
         }
-    },60);
+        else{
+            wordIndex++;
+            letterIndex=0;
+            setTimeout(() => {
+                loop();
+            }, 2800);
+        }
+    },60);;
 }
 loop();
 

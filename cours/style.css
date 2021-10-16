@@ -1,0 +1,7 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+.card{
+    border:2px solid orange;
+    margin:10px;
+}
