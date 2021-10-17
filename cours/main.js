@@ -179,17 +179,97 @@ arrayNumber.push(45);
 //----------------------
 
 
-document.body.innerHTML = data
-// .filter((user)=>user.admin===false)
-// .filter((user)=>user.pseudo.includes("Ryan"))
-.sort((a,b)=>b.age-a.age)
-.map((user)=>
+// document.body.innerHTML = data
+// // .filter((user)=>user.admin===false)
+// // .filter((user)=>user.pseudo.includes("Ryan"))
+// .sort((a,b)=>b.age-a.age)
+// .map((user)=>
 
-`<div class="card">
-    <h2>PSEUDO: ${user.pseudo}</h2>
-    <p>AGE:${user.age} ans</p>
-    <p>ADMIN:${user.admin ? "Modérateur":"Membre"}</p>
-    <p>TECHNOS: ${user.technos}</p>
-</div>
-`
-).join("");
+// `<div class="card">
+//     <h2>PSEUDO: ${user.pseudo}</h2>
+//     <p>AGE:${user.age} ans</p>
+//     <p>ADMIN:${user.admin ? "Modérateur":"Membre"}</p>
+//     <p>TECHNOS: ${user.technos}</p>
+// </div>
+// `
+// ).join("");
+
+//---------DATE CLASSIQUE--------
+
+let date = new Date();
+
+//timestamps
+// let timestamps = Date.parse(date);
+// console.log(timestamps);
+// //IsoString
+// console.log(date.toLocaleDateString());
+
+// let dateParser = (chaine)=>{
+//   let newDate = new Date(chaine).toLocaleDateString('fr-FR',{
+//     year:"numeric",
+//     month:"long",
+//     day:"numeric",
+//     hour:"numeric",
+//     minute:"numeric"
+//   });
+//   return newDate;
+// }
+
+// console.log(dateParser(date));
+
+// console.log(dateParser(timestamps));
+//----------------------------
+//--------DESTRUCTURING-------
+//----------------------------
+
+let moreData = {
+  destVar: ["ELEMENT 1","ELEMENT 2"]
+}
+// const {destVar} = moreData;
+let iso = date.toISOString();
+// console.log(destVar);
+let array5 = [70,80,90];
+let [x,y,z] = array5;
+// console.log(x,y,z);
+
+// const dateDestructuring = (chaine)=>{
+//     let newDate = chaine.split("T")[0];
+//     let [y,m,d] = newDate.split("-");
+//     // console.log(newDate);
+//     return [d,m,y].join("/");
+// }
+
+// console.log(dateDestructuring(iso));
+//--------------------------------
+//--------------LES DATASETS------
+//--------------------------------
+// const h3js = document.getElementById("javascript");
+// // console.log(h3js.dataset.lang);
+
+// const h3 = document.querySelectorAll("h3");
+
+// h3.forEach((language)=>console.log(language.dataset.lang));
+
+//-----------------------
+//-------LES REGEX-------
+//-----------------------
+let mail = "jl$agoueguy@gmail.com";
+// console.log(mail.search(/frscceeceom/));
+// console.log(mail.replace(/from/,"de"));
+// console.log(mail.match(/scratch/i));
+//vérifier qu'il ya un chiffre
+//console.log(mail.match(/\d/));
+//Matcher toutes les lettres
+//console.log(mail.match(/[a-z]/));
+//cregex for email address
+// console.log(mail.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i));
+
+//separateur
+// let separator = 2652345678;
+// console.log(separator.toString().replace(/\B(?=(\d{3})+(?!\d))/g," "));
+
+
+//----------------------
+//------FORM CHECKER----
+//----------------------
+//VIDEO 3: 3 h 31
